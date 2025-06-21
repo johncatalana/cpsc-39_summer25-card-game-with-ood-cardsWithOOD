@@ -1,10 +1,11 @@
 public class Card {
+// these private instance variables represent card attributes
     private String suit;
     private String rank;
     private int value;
     private String picture;
 
-    // Parameterized constructor
+    // Parameterized constructor - creates a new card with properties
     public Card(String suit, String rank, int value, String picture) {
         this.suit = suit;
         this.rank = rank;
@@ -12,7 +13,7 @@ public class Card {
         this.picture = picture;
     }
 
-    // Copy constructor
+    // Copy constructor - creates a copy of another Card object
     public Card(Card other) {
         this.suit = other.suit;
         this.rank = other.rank;
@@ -20,7 +21,7 @@ public class Card {
         this.picture = other.picture;
     }
 
-    // Accessors (getters)
+    // Accessors (getters) - retrieves card attributes
     public String getSuit() {
         return suit;
     }
@@ -37,7 +38,7 @@ public class Card {
         return picture;
     }
 
-    // Mutators (setters)
+    // Mutators (setters) - allows change to card attributes
     public void setSuit(String suit) {
         this.suit = suit;
     }
@@ -53,7 +54,7 @@ public class Card {
         this.picture = picture;
     }
 
-    // toString method
+    // toString method - returns a string representation of the card
     @Override
     public String toString() {
         return rank + " of " + suit;
