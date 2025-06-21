@@ -1,4 +1,9 @@
-package cardGame;
+// John Catalana
+// June 20, 2025
+// Card Game with OOD
+
+
+// package cardGame;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,10 +29,10 @@ public class CardGame {
 
 		while(input.hasNext()) {
 			String[] fields  = input.nextLine().split(",");
-			//	public Card(String cardSuit, String cardName, int cardValue, String cardPicture) {
+			// public Card(String cardSuit, String cardName, int cardValue, String cardPicture) {
 			Card newCard = new Card(fields[0], fields[1].trim(),
 					Integer.parseInt(fields[2].trim()), fields[3]);
-			deckOfCards.add(newCard);	
+			deckOfCards.add(newCard);
 		}
 
 		shuffle();
@@ -36,13 +41,13 @@ public class CardGame {
 			//System.out.println(c);
 
 		//deal the player 5 cards
-		for(int i = 0; i < 4; i++) {
+		for(int i = 0; i < 5; i++) {
 			playerCards.add(deckOfCards.remove(i));
 		}
 		
 		System.out.println("players cards");
 		for(Card c: playerCards)
-			System.out.println(c);
+			System.out.println(c + " (Value: " + c.getValue() + ")");
 
 		System.out.println("pairs is " + checkFor2Kind());
 
@@ -71,11 +76,12 @@ public class CardGame {
 				next = playerCards.get(j);
 				//System.out.println(" comparing " + current);
 				//System.out.println(" to " + next);
-				if(current.equals(next))
+				if(current.getValue() == next.getValue()) {
 					count++;
 			}//end of inner for
 			if(count == 1)
 				return true;
+		}
 
 		}//end outer for
 		return false;
